@@ -1,0 +1,5 @@
+{
+    "mongoUrl" : "mongodb://localhost/Devices"
+        
+    
+}
