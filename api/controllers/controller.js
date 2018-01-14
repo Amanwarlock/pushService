@@ -3,8 +3,7 @@ var http = require("https");
 var Mongoose = require("mongoose");
 var addDeviceController = require("./add.device.ctrl");
 var config = require("../helpers/config.json");
-//var url = process.env.PROD ?  config.mongo_sandbox : config.mongoUrl;
-var url = config.mongoUrl;
+var url = process.env.mongo_sandbox ?  process.env.mongo_sandbox : config.mongoUrl;
 
 Mongoose.Promise = global.Promise;
 Mongoose.connect(url, function(err) {
@@ -16,8 +15,6 @@ Mongoose.connect(url, function(err) {
 });
 
 function hearBeat(req , res){
-    console.log('-------heroku network params------' , process.env.mongo_sandbox );
-    console.log('-------heroku network flag------' , process.env.PROD );
     var response = {
         message : "Greetings ! App Health is fine.",
         mongo_url : url,
