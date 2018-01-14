@@ -3,10 +3,7 @@ var http = require("https");
 var Mongoose = require("mongoose");
 var addDeviceController = require("./add.device.ctrl");
 var config = require("../helpers/config.json");
-var url = config.mongoUrl;
-process.env.mongoUrl = config.mongoUrl;
-
-
+var url = process.env.PROD ?  config.mongo_sandbox : config.mongoUrl;
 
 Mongoose.Promise = global.Promise;
 Mongoose.connect(url, function(err) {
