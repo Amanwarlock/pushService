@@ -1,1 +1,1 @@
-web: swagger project start
+web: node app.js
