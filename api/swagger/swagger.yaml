@@ -18,6 +18,23 @@ consumes:
 produces:
   - application/json
 paths:
+  /v1/hearbeat:
+    x-swagger-router-controller: controller
+    get:
+      description: checks app health
+      operationId: v1_heartBeat
+      responses:
+            "200":
+              description: Success
+              schema:
+                # a pointer to a definition
+                $ref: "#/definitions/HelloWorldResponse"
+            # responses may fall through to errors
+            default:
+              description: Error
+              schema:
+                $ref: "#/definitions/ErrorResponse"
+    
   /v1/addDevice:
     x-swagger-router-controller: controller
     post:

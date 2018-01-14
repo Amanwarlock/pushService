@@ -17,6 +17,11 @@ Mongoose.connect(url, function(err) {
     }
 });
 
+function hearBeat(req , res){
+    res.status(200).send({message: "Greetings ! App Health is fine."});
+}
+
 module.exports = {
-    v1_addDevice : addDeviceController.addDevice
+    v1_addDevice : addDeviceController.addDevice,
+    v1_heartBeat : hearBeat
 }
