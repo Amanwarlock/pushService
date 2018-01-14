@@ -15,7 +15,18 @@ Mongoose.connect(url, function(err) {
 });
 
 function hearBeat(req , res){
-    res.status(200).send({message: "Greetings ! App Health is fine."});
+    var response = {
+        message : "Greetings ! App Health is fine.",
+        mongo_url : url,
+        flag : process.env.PROD,
+        extras:{
+            heroku_config : {
+                prod_flag : process.env.PROD,
+                prod_db_url : process.env.mongo_sandbox
+            }
+        }
+    };
+    res.status(200).send(response);
 }
 
 module.exports = {

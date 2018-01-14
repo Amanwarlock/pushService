@@ -28,7 +28,7 @@ paths:
               description: Success
               schema:
                 # a pointer to a definition
-                $ref: "#/definitions/HelloWorldResponse"
+                $ref: "#/definitions/heartBeat_response"
             # responses may fall through to errors
             default:
               description: Error
@@ -87,6 +87,13 @@ paths:
 # complex objects have schema definitions
 definitions:
 
+  heartBeat_response:
+    properties:
+      message: {type: string}
+      mongo_url : {type : string}
+      flag: {type : string}
+      extras: {type: object}
+      
   add_device:
     properties:
       deviceId : {type : string}
