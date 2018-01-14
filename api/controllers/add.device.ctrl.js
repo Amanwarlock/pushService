@@ -3,7 +3,7 @@
 var http = require("https");
 var Mongoose = require("mongoose");
 var definition = require("../helpers/device.definition");
-var schema = new Mongoose.schema(definition);
+var schema = new Mongoose.Schema(definition);
 var model = Mongoose.model('Device' , schema);
 
 function addDevice (req , res){
