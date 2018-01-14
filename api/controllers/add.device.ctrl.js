@@ -3,8 +3,8 @@
 var http = require("https");
 var Mongoose = require("mongoose");
 var definition = require("../helpers/device.definition");
-var schema = Mongoose.schema(definition);
-var model = new Mongoose.model(schema , 'Device');
+var schema = new Mongoose.schema(definition);
+var model = Mongoose.model('Device' , schema);
 
 function addDevice (req , res){
     var _params = req.swagger.params['data'].value;
